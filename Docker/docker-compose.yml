@@ -1,0 +1,53 @@
+services:
+
+  redis:
+    image: redis:alpine
+    container_name: hirehub-redis
+    ports:
+      - "6379:6379"
+
+  mongodb:
+    image: mongo:latest
+    container_name: hirehub-mongodb
+    ports:
+      - "27017:27017"
+
+  apigateway:
+    build: ./Gateway
+    container_name: hirehub-gateway
+    ports:
+      - "3000:3000"
+    depends_on:
+      - admin
+      - recruiter
+      - candidate
+      - redis
+
+  admin:
+    build: ./Admin-Service
+    container_name: hirehub-admin
+    expose:
+      - "3001"
+    depends_on:
+      - mongodb
+      - redis
+
+  recruiter:
+    build: ./Recruiter-Service
+    container_name: hirehub-recruiter
+    expose:
+      - "3002"
+    depends_on:
+      - mongodb
+      - redis
+
+  candidate:
+    build: ./Candidate-Service
+    container_name: hirehub-candidate
+    expose:
+      - "3003"
+    depends_on:
+      - mongodb
+      - redis
+
+        
