@@ -8,7 +8,7 @@ HireHub is a full-stack, enterprise-grade recruitment platform connecting Compan
 
 - **Frontend:** React 18, Vite, Redux Toolkit, React Router v6, Axios, Lucide Icons, jsQR.
 - **Backend Services:** Node.js, Express, MongoDB (Mongoose), Redis (BullMQ queues), Apache Kafka (event streaming), ImageKit.
-- **Security & Tokens:** In-memory short-lived Access Tokens (1h), HttpOnly Secure Refresh Tokens (7d), Session Rotation & Immediate Revocation.
+- **Security & Tokens:** In-memory short-lived Access Tokens (15m), HttpOnly Secure Refresh Tokens (7d), Session Rotation & Immediate Revocation.
 
 ---
 
