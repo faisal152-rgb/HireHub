@@ -1,0 +1,139 @@
+.comp-top-header {
+  gap: 24px;
+}
+
+.comp-header-search-wrap {
+  flex: 1;
+  width: auto;
+  max-width: 560px;
+}
+
+.comp-header-search-input {
+  padding-right: 18px;
+  font-size: 13px;
+}
+
+.comp-header-actions {
+  flex-shrink: 0;
+  gap: 10px;
+}
+
+.comp-header-actions .comp-icon-btn {
+  transition: border-color 0.18s ease, color 0.18s ease, background 0.18s ease;
+}
+
+.comp-header-actions .comp-icon-btn:hover {
+  border-color: #cfd2ff;
+  background: #f7f6ff;
+}
+
+.comp-header-profile {
+  position: relative;
+  margin-left: 4px;
+}
+
+.comp-header-user-btn {
+  min-height: 48px;
+  gap: 10px;
+}
+
+.comp-header-user-copy {
+  display: flex;
+  min-width: 92px;
+  flex-direction: column;
+}
+
+.comp-header-user-name,
+.comp-header-user-sub {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.comp-header-user-name {
+  max-width: 130px;
+}
+
+.comp-header-user-sub {
+  margin-top: 1px;
+}
+
+.comp-header-chevron {
+  color: #8a94a8;
+  transition: transform 0.18s ease;
+}
+
+.comp-header-user-btn[aria-expanded="true"] .comp-header-chevron {
+  transform: rotate(180deg);
+}
+
+.comp-header-dropdown {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  z-index: 100;
+  display: flex;
+  width: 196px;
+  flex-direction: column;
+  gap: 3px;
+  padding: 6px;
+  border: 1px solid #e4e7ef;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 16px 35px rgba(15, 23, 42, 0.14);
+}
+
+.comp-header-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  width: 100%;
+  min-height: 38px;
+  padding: 0 10px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: #334155;
+  font: inherit;
+  font-size: 13px;
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.comp-header-menu-item:hover {
+  background: #f4f5ff;
+  color: #5149dd;
+}
+
+.comp-header-menu-item.danger {
+  color: #d04456;
+}
+
+.comp-header-menu-item.danger:hover {
+  background: #fff1f2;
+  color: #be3045;
+}
+
+@media (max-width: 768px) {
+  .comp-top-header {
+    gap: 10px;
+  }
+
+  .comp-header-search-wrap {
+    min-width: 0;
+  }
+
+  .comp-header-actions {
+    gap: 5px;
+  }
+
+  .comp-header-user-copy,
+  .comp-header-chevron {
+    display: none;
+  }
+
+  .comp-header-user-btn {
+    padding: 2px;
+  }
+}

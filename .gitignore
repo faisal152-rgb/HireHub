@@ -1,0 +1,14 @@
+# Dependencies (all levels)
+node_modules
+
+# Dependency lockfiles (Backend + Frontend)
+package-lock.json
+
+# Build artifacts
+Frontend/dist
+Backend/public
+
+# Environment variables (secrets) — .env.example stays visible
+.env
+*.env
+!.env.example 

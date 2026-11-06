@@ -1,0 +1,40 @@
+.comp-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 18px;
+  color: #64748b;
+  font-size: 13px;
+}
+
+.comp-pagination-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.comp-pagination-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 10px;
+  font-size: 12px;
+}
+
+.comp-pagination-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.comp-pagination-page {
+  color: #334155;
+  white-space: nowrap;
+}
+
+@media (max-width: 520px) {
+  .comp-pagination {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

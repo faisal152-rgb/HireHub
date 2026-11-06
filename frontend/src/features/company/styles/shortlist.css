@@ -1,0 +1,215 @@
+.shortlist-tabs {
+  display: flex;
+  width: fit-content;
+  min-width: 430px;
+  max-width: 100%;
+  margin-bottom: 22px;
+  padding: 4px;
+  border: 1px solid #e6e9f1;
+  border-radius: 12px;
+  background: #ffffff;
+}
+
+.shortlist-tabs .comp-tab-pill {
+  flex: 1;
+  justify-content: center;
+  border-color: transparent;
+  border-radius: 8px;
+  padding: 10px 14px;
+  white-space: nowrap;
+}
+
+.shortlist-tabs .comp-tab-pill.active {
+  background: #625bf6;
+  color: #ffffff;
+  box-shadow: 0 5px 12px rgba(98, 91, 246, 0.18);
+}
+
+.shortlist-filter-bar {
+  display: grid;
+  grid-template-columns: minmax(280px, 1fr) auto;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  padding: 14px;
+  border: 1px solid #e8ebf3;
+  border-radius: 12px;
+  background: #ffffff;
+}
+
+.shortlist-data-notice {
+  margin: -8px 0 16px;
+  color: #b77908;
+  font-size: 12px;
+}
+
+.shortlist-empty-state {
+  padding: 48px 20px !important;
+  color: #788398 !important;
+  text-align: center;
+}
+
+.shortlist-job {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.shortlist-job-title {
+  color: #334155;
+  font-weight: 600;
+}
+
+.shortlist-recruiter {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #64748b;
+  font-size: 11.5px;
+  font-weight: 500;
+}
+
+.shortlist-recruiter-avatar {
+  width: 23px;
+  height: 23px;
+  flex: 0 0 23px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #eef2ff;
+}
+
+.shortlist-recruiter-initials {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #4f46e5;
+  font-size: 9px;
+  font-weight: 800;
+}
+
+.shortlist-filter-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: nowrap;
+}
+
+.shortlist-filter-bar .comp-filter-search-box {
+  width: 100%;
+  max-width: none;
+}
+
+.shortlist-filter-bar .comp-filter-search-box input,
+.shortlist-filter-bar .comp-filter-select-modern,
+.shortlist-filter-bar .comp-btn-filter-outline {
+  height: 42px;
+}
+
+.shortlist-filter-bar .comp-filter-select-modern {
+  min-width: 142px;
+}
+
+.shortlist-filter-bar .comp-btn-filter-outline {
+  min-width: 92px;
+  white-space: nowrap;
+}
+
+.shortlist-page:has(.comp-table) > .comp-card {
+  overflow: hidden;
+  border: 1px solid #e6e9f1;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.045);
+}
+
+.shortlist-page:has(.comp-table) .comp-table th {
+  height: 52px;
+  padding: 0 20px;
+  background: #fafbfe;
+  color: #788398;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.shortlist-page:has(.comp-table) .comp-table td {
+  height: 76px;
+  padding: 13px 20px;
+  border-bottom-color: #edf0f5;
+  font-size: 13px;
+}
+
+.shortlist-page:has(.comp-table) .comp-table tbody tr {
+  transition: background 0.16s ease;
+}
+
+.shortlist-page:has(.comp-table) .comp-table tbody tr:hover {
+  background: #fafaff;
+}
+
+.shortlist-page:has(.comp-table) .comp-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.shortlist-page:has(.comp-table) .comp-table td:first-child > div {
+  gap: 12px !important;
+}
+
+.shortlist-page:has(.comp-table) .comp-table td:first-child > div > div {
+  width: 42px !important;
+  height: 42px !important;
+  border-radius: 11px !important;
+  box-shadow: 0 4px 10px rgba(80, 70, 229, 0.12);
+}
+
+.shortlist-page:has(.comp-table) .comp-table .comp-badge {
+  min-height: 28px;
+  padding: 0 11px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.shortlist-page:has(.comp-table) .comp-table .comp-btn-secondary {
+  min-height: 34px;
+  border-color: #dfe3ed;
+  border-radius: 8px;
+  color: #58657b;
+}
+
+.shortlist-page:has(.comp-table) .comp-table .comp-btn-secondary:hover {
+  border-color: #625bf6;
+  color: #625bf6;
+  background: #f7f6ff;
+}
+
+@media (max-width: 760px) {
+  .shortlist-tabs {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .shortlist-filter-bar {
+    grid-template-columns: 1fr;
+  }
+
+  .shortlist-filter-controls {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .shortlist-filter-bar .comp-filter-select-modern,
+  .shortlist-filter-bar .comp-btn-filter-outline {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .shortlist-page:has(.comp-table) > .comp-card {
+    overflow-x: auto;
+  }
+
+  .shortlist-page:has(.comp-table) .comp-table {
+    min-width: 680px;
+  }
+}

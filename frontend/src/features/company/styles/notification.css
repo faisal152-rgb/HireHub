@@ -1,0 +1,31 @@
+ .comp-page-container:has(.comp-notif-item) .comp-card {
+  overflow: hidden;
+}
+
+.comp-page-container:has(.comp-notif-item) .comp-page-header {
+  align-items: flex-end;
+}
+
+.comp-page-container:has(.comp-notif-item) .comp-page-header > div:last-child {
+  display: flex;
+  gap: 8px;
+}
+
+.comp-page-container:has(.comp-notif-item) .comp-tabs {
+  max-width: 720px;
+}
+
+.comp-page-container:has(.comp-notif-item) .comp-notif-item {
+  min-height: 88px;
+  padding: 18px 24px;
+}
+
+.comp-page-container:has(.comp-notif-item) .comp-notif-item.unread {
+  box-shadow: inset 3px 0 0 #625bf6;
+}
+
+@media (max-width: 640px) {
+  .comp-page-container:has(.comp-notif-item) .comp-page-header > div:last-child {
+    width: 100%;
+  }
+}

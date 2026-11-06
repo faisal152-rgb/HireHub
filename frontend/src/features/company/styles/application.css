@@ -1,0 +1,202 @@
+ .comp-page-container:has(.comp-tabs-pills) .comp-tabs-pills {
+   padding: 4px;
+   border: 1px solid #e8ebf3;
+   border-radius: 12px;
+   background: #ffffff;
+ }
+
+ .comp-page-container:has(.comp-tabs-pills) .comp-tab-pill {
+   border-color: transparent;
+ }
+
+ .comp-page-container:has(.comp-tabs-pills) .comp-tab-pill.active {
+   background: #625bf6;
+   color: #ffffff;
+ }
+
+ .comp-page-container:has(.comp-tabs-pills) .comp-filter-bar-modern {
+   display: grid;
+   grid-template-columns: minmax(280px, 1fr) auto;
+   align-items: center;
+   gap: 12px;
+   margin-bottom: 18px;
+ }
+
+ .comp-page-container:has(.comp-tabs-pills) .comp-filter-bar-modern>div:last-child {
+   display: flex;
+   align-items: center;
+   gap: 10px;
+   flex-wrap: nowrap;
+ }
+
+ .comp-page-container:has(.comp-tabs-pills) .comp-filter-search-box {
+   width: 100%;
+   max-width: none;
+ }
+
+ .comp-page-container:has(.comp-tabs-pills) .comp-filter-search-box input,
+ .comp-page-container:has(.comp-tabs-pills) .comp-filter-select-modern,
+ .comp-page-container:has(.comp-tabs-pills) .comp-btn-filter-outline {
+   height: 42px;
+ }
+
+ .comp-page-container:has(.comp-tabs-pills) .comp-filter-select-modern {
+   min-width: 142px;
+   padding-right: 28px;
+ }
+
+ .comp-page-container:has(.comp-tabs-pills) .comp-btn-filter-outline {
+   min-width: 92px;
+   white-space: nowrap;
+ }
+
+ .comp-page-container:has(.comp-tabs-pills) .comp-table-wrap {
+   box-shadow: 0 8px 24px rgba(15, 23, 42, 0.045);
+ }
+
+ .comp-page-container:has(.comp-tabs-pills) .comp-table-card {
+   overflow: hidden;
+   border: 1px solid #e6e9f1;
+   border-radius: 14px;
+   background: #ffffff;
+   box-shadow: 0 8px 24px rgba(15, 23, 42, 0.045);
+ }
+
+ .comp-page-container:has(.comp-tabs-pills) .comp-modern-table {
+   width: 100%;
+   border-collapse: collapse;
+   text-align: left;
+ }
+
+ .comp-page-container:has(.comp-tabs-pills) .comp-modern-table th {
+   height: 52px;
+   padding: 0 20px;
+   border-bottom: 1px solid #e8ebf3;
+   background: #fafbfe;
+   color: #788398;
+   font-size: 11px;
+   font-weight: 800;
+   letter-spacing: 0.07em;
+   text-transform: uppercase;
+   white-space: nowrap;
+ }
+
+ .comp-page-container:has(.comp-tabs-pills) .comp-modern-table td {
+   height: 76px;
+   padding: 13px 20px;
+   border-bottom: 1px solid #edf0f5;
+   color: #273248;
+   font-size: 13px;
+   vertical-align: middle;
+ }
+
+ .comp-page-container:has(.comp-tabs-pills) .comp-modern-table tbody tr:last-child td {
+   border-bottom: 0;
+ }
+
+ .comp-page-container:has(.comp-tabs-pills) .comp-modern-table tbody tr:hover {
+   background: #fafaff;
+ }
+
+ .comp-page-container:has(.comp-tabs-pills) .comp-row-avatar {
+   width: 42px;
+   height: 42px;
+   flex: 0 0 42px;
+   border-radius: 11px;
+   object-fit: cover;
+   background: #eef0ff;
+ }
+
+ .comp-page-container:has(.comp-tabs-pills) .comp-pill-badge {
+   display: inline-flex;
+   align-items: center;
+   justify-content: center;
+   min-width: 78px;
+   min-height: 28px;
+   padding: 0 10px;
+   border-radius: 999px;
+   font-size: 11px;
+   font-weight: 800;
+ }
+
+ .comp-page-container:has(.comp-tabs-pills) .comp-pill-badge.badge-new,
+ .comp-page-container:has(.comp-tabs-pills) .comp-pill-badge.badge-shortlisted {
+   background: #e9fbf3;
+   color: #07875c;
+ }
+
+ .comp-page-container:has(.comp-tabs-pills) .comp-pill-badge.badge-inreview {
+   background: #fff6df;
+   color: #b77908;
+ }
+
+ .comp-page-container:has(.comp-tabs-pills) .comp-pill-badge.badge-rejected {
+   background: #ffebed;
+   color: #d04456;
+ }
+
+ @media (max-width: 900px) {
+   .comp-page-container:has(.comp-tabs-pills) .comp-table-card {
+     overflow-x: auto;
+   }
+
+   .comp-page-container:has(.comp-tabs-pills) .comp-modern-table {
+     min-width: 700px;
+   }
+ }
+
+ @media (max-width: 760px) {
+   .comp-page-container:has(.comp-tabs-pills) .comp-filter-bar-modern {
+     grid-template-columns: 1fr;
+   }
+
+   .comp-page-container:has(.comp-tabs-pills) .comp-filter-bar-modern>div:last-child {
+     display: grid;
+     grid-template-columns: repeat(3, minmax(0, 1fr));
+   }
+
+   .comp-page-container:has(.comp-tabs-pills) .comp-filter-select-modern,
+   .comp-page-container:has(.comp-tabs-pills) .comp-btn-filter-outline {
+     min-width: 0;
+     width: 100%;
+   }
+ }
+
+ .comp-application-job {
+   display: flex;
+   flex-direction: column;
+   align-items: flex-start;
+   gap: 6px;
+ }
+
+ .comp-application-job-title {
+   color: #0f172a;
+   font-weight: 600;
+ }
+
+ .comp-application-recruiter {
+   display: inline-flex;
+   align-items: center;
+   gap: 7px;
+   color: #64748b;
+   font-size: 11.5px;
+   font-weight: 500;
+ }
+
+ .comp-application-recruiter-avatar {
+   width: 23px;
+   height: 23px;
+   flex: 0 0 23px;
+   border-radius: 50%;
+   object-fit: cover;
+   background: #eef2ff;
+ }
+
+ .comp-application-recruiter-initials {
+   display: inline-flex;
+   align-items: center;
+   justify-content: center;
+   color: #4f46e5;
+   font-size: 9px;
+   font-weight: 800;
+ }
