@@ -2,7 +2,7 @@ import axios from "axios";
 import { getAccessToken, setAccessToken, clearAccessToken, getRole } from "../utils/tokenStorage";
 
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE_URL || "http://localhost:3000/api",
+  baseURL: import.meta.env.VITE_API_BASE_URL,
   withCredentials: true, // Always send httpOnly cookies (refreshToken)
   headers: {
     "Content-Type": "application/json",
