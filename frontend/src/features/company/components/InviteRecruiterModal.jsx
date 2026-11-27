@@ -84,6 +84,7 @@ export default function InviteRecruiterModal({ onClose }) {
     try {
       const res = await api.post(endpoint.company.regenerateCompanyInvite);
       if (res.data) {
+
         const code = res.data.inviteCode ;
         setInviteCode(code);
         const link =
