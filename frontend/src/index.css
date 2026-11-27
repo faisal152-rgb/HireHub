@@ -328,3 +328,113 @@ a:hover {
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(255, 255, 255, 0.3);
 }
+
+/* ==========================================================================
+   Protected Route Session Skeleton Screen
+   ========================================================================== */
+@keyframes routeSkShimmer {
+  0% {
+    background-position: -600px 0;
+  }
+  100% {
+    background-position: 600px 0;
+  }
+}
+
+.route-sk-shell {
+  display: flex;
+  min-height: 100vh;
+  background: #f8fafc;
+}
+
+.route-sk-box {
+  background: linear-gradient(90deg, #e2e8f0 25%, #f1f5f9 50%, #e2e8f0 75%);
+  background-size: 1200px 100%;
+  animation: routeSkShimmer 1.4s infinite linear;
+  border-radius: 8px;
+}
+
+.route-sk-sidebar {
+  width: 240px;
+  flex-shrink: 0;
+  background: #ffffff;
+  border-right: 1px solid #e2e8f0;
+  padding: 20px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.route-sk-main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.route-sk-header {
+  height: 64px;
+  background: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.route-sk-content {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.route-sk-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.route-sk-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 20px;
+}
+
+@media (max-width: 1024px) {
+  .route-sk-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .route-sk-sidebar {
+    width: 68px;
+    padding: 16px 10px;
+    align-items: center;
+  }
+
+  .route-sk-sidebar-label {
+    display: none;
+  }
+
+  .route-sk-header {
+    padding: 0 14px;
+  }
+
+  .route-sk-content {
+    padding: 16px;
+  }
+
+  .route-sk-stats {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .route-sk-box {
+    animation: none;
+  }
+}
