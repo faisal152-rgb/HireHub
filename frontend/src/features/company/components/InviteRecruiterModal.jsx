@@ -225,10 +225,11 @@ export default function InviteRecruiterModal({ onClose }) {
               }}
             >
               {isLoading ? (
-                <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 8 }}>
-                  <Loader2 size={26} className="animate-spin" color="#4f46e5" />
-                  <span style={{ fontSize: 12, color: "#64748b" }}>Loading QR...</span>
-                </div>
+                <div
+                  className="comp-skeleton"
+                  aria-label="Loading QR code"
+                  style={{ width: 156, height: 156, borderRadius: 10 }}
+                />
               ) : qrCode ? (
                 <img
                   src={qrCode}

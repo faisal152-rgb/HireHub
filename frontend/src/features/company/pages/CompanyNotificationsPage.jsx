@@ -16,6 +16,7 @@ import {
 import api from "../../../services/api";
 import endpoint from "../../../services/endpoint";
 import { useAppSelector } from "../../../app/hooks";
+import { ListSkeletonCards } from "../components/CompanySkeletons";
 import "../styles/companyDashboard.css";
 import "../styles/notification.css";
 
@@ -269,10 +270,7 @@ export default function CompanyNotificationsPage() {
       {/* Notifications List Card */}
       <div className="comp-card" style={{ padding: "4px 0" }}>
         {isLoading ? (
-          <div style={{ textAlign: "center", padding: "60px 20px", color: "#64748b" }}>
-            <Loader2 size={32} className="animate-spin" style={{ margin: "0 auto 12px auto" }} />
-            <p style={{ margin: 0, fontSize: 14 }}>Loading notifications...</p>
-          </div>
+          <ListSkeletonCards count={5} />
         ) : filtered.length > 0 ? (
           <div style={{ display: "flex", flexDirection: "column" }}>
             {filtered.map((notif) => {

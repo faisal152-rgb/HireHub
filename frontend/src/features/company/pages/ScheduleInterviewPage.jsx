@@ -23,6 +23,7 @@ import api from "../../../services/api";
 import endpoint from "../../../services/endpoint";
 import { useAppSelector } from "../../../app/hooks";
 import { usePagination } from "../../../hooks/usePagination";
+import { ListSkeletonCards } from "../components/CompanySkeletons";
 import Pagination from "../../../components/common/Pagination";
 import { fetchAllPages } from "../../../services/paginatedData";
 import InterviewSchedulerModal from "../components/InterviewSchedulerModal";
@@ -527,23 +528,7 @@ export default function ScheduleInterviewPage() {
 
       {/* Interviews Content */}
       {isLoading ? (
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-            padding: "60px 20px",
-            background: "#fff",
-            borderRadius: 16,
-            border: "1px solid #e2e8f0",
-          }}
-        >
-          <Loader2 size={32} className="animate-spin" color="#4f46e5" />
-          <p style={{ marginTop: 12, fontSize: 14, color: "#64748b" }}>
-            Loading scheduled interviews...
-          </p>
-        </div>
+        <ListSkeletonCards count={4} />
       ) : filteredInterviews.length === 0 ? (
         <div
           style={{

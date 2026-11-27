@@ -5,6 +5,7 @@ import endpoint from "../../../services/endpoint";
 import { usePagination } from "../../../hooks/usePagination";
 import Pagination from "../../../components/common/Pagination";
 import { fetchAllPages } from "../../../services/paginatedData";
+import { TableSkeletonRows } from "../components/CompanySkeletons";
 import "../styles/companyDashboard.css";
 import "../styles/shortlist.css";
 
@@ -232,12 +233,7 @@ export default function ShortlistHiredPage() {
             </thead>
             <tbody>
               {isLoading ? (
-                <tr>
-                  <td colSpan={4} style={{ textAlign: "center", padding: 48, color: "#94a3b8" }}>
-                    <Users size={36} style={{ marginBottom: 10, opacity: 0.4 }} />
-                    <div style={{ fontWeight: 600, fontSize: 15 }}>Loading live candidates...</div>
-                  </td>
-                </tr>
+                <TableSkeletonRows rows={5} cols={4} />
               ) : displayedCandidates.length === 0 ? (
                 <tr>
                   <td colSpan={4} style={{ textAlign: "center", padding: 48, color: "#94a3b8" }}>

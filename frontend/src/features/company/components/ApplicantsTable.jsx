@@ -20,6 +20,7 @@ import {
   Loader2,
 } from "lucide-react";
 import InterviewSchedulerModal from "./InterviewSchedulerModal";
+import { TableSkeletonRows } from "./CompanySkeletons";
 import api from "../../../services/api";
 import endpoint from "../../../services/endpoint";
 import { useAppSelector } from "../../../app/hooks";
@@ -315,12 +316,7 @@ export default function ApplicantsTable() {
             </thead>
             <tbody>
               {isLoading ? (
-                <tr>
-                  <td colSpan="5" style={{ textAlign: "center", padding: 48, color: "#64748b" }}>
-                    <Loader2 size={22} style={{ animation: "spin 1s linear infinite", marginRight: 8 }} />
-                    Loading applications...
-                  </td>
-                </tr>
+                <TableSkeletonRows rows={5} cols={5} />
               ) : loadError || filteredCandidates.length === 0 ? (
                 <tr>
                   <td colSpan="5" style={{ textAlign: "center", padding: 56, color: "#94a3b8" }}>

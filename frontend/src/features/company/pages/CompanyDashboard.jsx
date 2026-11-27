@@ -16,6 +16,7 @@ import endpoint from "../../../services/endpoint";
 import { fetchAllPages } from "../../../services/paginatedData";
 import InviteRecruiterModal from "../components/InviteRecruiterModal";
 import RecruiterDashboard from "./RecruiterDashboard";
+import { DashboardSkeleton } from "../components/CompanySkeletons";
 import "../styles/companyDashboard.css";
 import { useAppSelector } from "../../../app/hooks";
 
@@ -111,6 +112,10 @@ export default function CompanyDashboard() {
   // If user is a recruiter, render the Recruiter Dashboard matching the exact UI specification
   if (isRecruiter) {
     return <RecruiterDashboard />;
+  }
+
+  if (isLoading) {
+    return <DashboardSkeleton />;
   }
 
   const stats = [

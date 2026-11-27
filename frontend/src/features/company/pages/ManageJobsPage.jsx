@@ -23,6 +23,7 @@ import api from "../../../services/api";
 import endpoint from "../../../services/endpoint";
 import { useAppSelector } from "../../../app/hooks";
 import { usePagination } from "../../../hooks/usePagination";
+import { TableSkeletonRows } from "../components/CompanySkeletons";
 import Pagination from "../../../components/common/Pagination";
 import "../styles/companyDashboard.css";
 import "../styles/job.css";
@@ -334,12 +335,7 @@ export default function ManageJobsPage() {
             </thead>
             <tbody>
               {isLoading ? (
-                <tr>
-                  <td colSpan={isRecruiter ? 6 : 7} style={{ textAlign: "center", padding: 40, color: "#64748b" }}>
-                    <Loader2 size={22} style={{ animation: "spin 1s linear infinite", marginRight: 8 }} />
-                    Loading jobs...
-                  </td>
-                </tr>
+                <TableSkeletonRows rows={5} cols={isRecruiter ? 6 : 7} />
               ) : loadError ? (
                 <tr>
                   <td colSpan={isRecruiter ? 6 : 7} style={{ textAlign: "center", padding: 40, color: "#ef4444" }}>

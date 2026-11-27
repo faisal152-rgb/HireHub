@@ -13,6 +13,7 @@ import {
   Users,
 } from "lucide-react";
 import InviteRecruiterModal from "../components/InviteRecruiterModal";
+import { TableSkeletonRows } from "../components/CompanySkeletons";
 import api from "../../../services/api";
 import endpoint from "../../../services/endpoint";
 import { useAppSelector } from "../../../app/hooks";
@@ -199,12 +200,7 @@ export default function RecruiterTeamPage({ autoOpenInvite = false }) {
             </thead>
             <tbody>
               {isLoading ? (
-                <tr>
-                  <td colSpan={5} style={{ padding: 32, textAlign: "center", color: "#64748b" }}>
-                    <Loader2 size={18} className="animate-spin" />
-                    <span style={{ marginLeft: 8 }}>Loading recruiters...</span>
-                  </td>
-                </tr>
+                <TableSkeletonRows rows={5} cols={5} />
               ) : recruiters.length === 0 ? (
                 <tr>
                   <td colSpan={5} style={{ textAlign: "center", padding: 48, color: "#94a3b8" }}>

@@ -23,6 +23,7 @@ import {
   TrendingUp,
 } from "lucide-react";
 import api from "../../../services/api";
+import { DashboardSkeleton } from "../components/CompanySkeletons";
 import endpoint from "../../../services/endpoint";
 import { fetchAllPages } from "../../../services/paginatedData";
 import "../styles/companyDashboard.css";
@@ -387,6 +388,10 @@ export default function RecruiterDashboard() {
       .sort((a, b) => new Date(a.scheduledAt) - new Date(b.scheduledAt))
       .slice(0, 5);
   }, [liveInterviews]);
+
+  if (isLoading) {
+    return <DashboardSkeleton />;
+  }
 
   return (
     <div className="comp-page-container">
