@@ -84,11 +84,7 @@ export default function InviteRecruiterModal({ onClose }) {
     try {
       const res = await api.post(endpoint.company.regenerateCompanyInvite);
       if (res.data) {
-<<<<<<< HEAD
         const code = res.data.inviteCode ;
-=======
-        const code = res.data.inviteCode;
->>>>>>> f9d8ac4 (Update recruiter team empty state and backend fixes)
         setInviteCode(code);
         const link =
           res.data.inviteUrl;
@@ -210,15 +206,7 @@ export default function InviteRecruiterModal({ onClose }) {
             </p>
           </div>
 
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "180px 1fr",
-              gap: 24,
-              alignItems: "center",
-              marginBottom: 24,
-            }}
-          >
+          <div className="invite-qr-link-grid">
             {/* Real Scannable QR Code */}
             <div
               style={{
@@ -254,15 +242,8 @@ export default function InviteRecruiterModal({ onClose }) {
             </div>
 
             {/* Link + Actions */}
-            <div>
-              <div
-                style={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                  marginBottom: 8,
-                }}
-              >
+            <div style={{ minWidth: 0, width: "100%" }}>
+              <div className="invite-link-header">
                 <label
                   style={{
                     fontSize: 13,
@@ -334,7 +315,7 @@ export default function InviteRecruiterModal({ onClose }) {
                 </button>
               </div>
 
-              <div style={{ display: "flex", gap: 12 }}>
+              <div className="invite-action-btns">
                 <button
                   type="button"
                   onClick={handleDownloadQR}
@@ -477,7 +458,7 @@ export default function InviteRecruiterModal({ onClose }) {
                 <span>Back</span>
               </button>
 
-              <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+              <div className="invite-step2-actions">
                 <button
                   type="button"
                   className="comp-btn comp-btn-secondary"
@@ -551,7 +532,7 @@ export default function InviteRecruiterModal({ onClose }) {
             </p>
 
             <div
-              style={{ display: "flex", justifyContent: "center", gap: 12 }}
+              style={{ display: "flex", justifyContent: "center", gap: 12, flexWrap: "wrap" }}
             >
               <button
                 type="button"

@@ -213,8 +213,10 @@
 }
 
 @media (max-width: 900px) {
-  .comp-table-card {
+  .comp-table-card,
+  .comp-table-card .comp-table-wrap {
     overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
   }
 
   .comp-modern-table {
@@ -241,6 +243,17 @@
   .comp-page-container:has(.comp-filter-bar-modern) .comp-filter-select-modern {
     min-width: 0;
     width: 100%;
+  }
+
+  .comp-page-header .comp-btn-primary {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 560px) {
+  .comp-page-container:has(.comp-filter-bar-modern) .comp-filter-bar-modern > div:last-child {
+    grid-template-columns: 1fr;
   }
 }
 

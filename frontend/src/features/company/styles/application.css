@@ -136,8 +136,10 @@
  }
 
  @media (max-width: 900px) {
-   .comp-page-container:has(.comp-tabs-pills) .comp-table-card {
+   .comp-page-container:has(.comp-tabs-pills) .comp-table-card,
+   .comp-page-container:has(.comp-tabs-pills) .comp-table-card .comp-table-wrap {
      overflow-x: auto;
+     -webkit-overflow-scrolling: touch;
    }
 
    .comp-page-container:has(.comp-tabs-pills) .comp-modern-table {
@@ -146,6 +148,16 @@
  }
 
  @media (max-width: 760px) {
+   .comp-page-container:has(.comp-tabs-pills) .comp-tabs-pills {
+     max-width: 100%;
+     overflow-x: auto;
+     -webkit-overflow-scrolling: touch;
+   }
+
+   .comp-page-container:has(.comp-tabs-pills) .comp-tab-pill {
+     flex-shrink: 0;
+   }
+
    .comp-page-container:has(.comp-tabs-pills) .comp-filter-bar-modern {
      grid-template-columns: 1fr;
    }
@@ -159,6 +171,16 @@
    .comp-page-container:has(.comp-tabs-pills) .comp-btn-filter-outline {
      min-width: 0;
      width: 100%;
+   }
+ }
+
+ @media (max-width: 540px) {
+   .comp-page-container:has(.comp-tabs-pills) .comp-filter-bar-modern>div:last-child {
+     grid-template-columns: repeat(2, minmax(0, 1fr));
+   }
+
+   .comp-page-container:has(.comp-tabs-pills) .comp-btn-filter-outline {
+     grid-column: span 2;
    }
  }
 

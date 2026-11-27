@@ -175,10 +175,81 @@
   .comp-action-menu {
     right: 0;
   }
-}
 
-@media (max-width: 768px) {
   .comp-page-container:has(.comp-profile-layout) .comp-profile-intro {
     position: static;
+  }
+
+  .recruiter-team-page:has(.comp-table) .comp-table-wrap {
+    overflow-x: auto !important;
+    overflow-y: visible !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .recruiter-team-table {
+    min-width: 620px;
+  }
+
+  .recruiter-team-page .comp-page-header .comp-btn-primary {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ── Add Recruiter / Invite Modal Responsive Styles ── */
+.invite-qr-link-grid {
+  display: grid;
+  grid-template-columns: 180px minmax(0, 1fr);
+  gap: 24px;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.invite-link-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.invite-action-btns {
+  display: flex;
+  gap: 12px;
+}
+
+.invite-step2-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+@media (max-width: 640px) {
+  .invite-qr-link-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    justify-items: center;
+  }
+}
+
+@media (max-width: 520px) {
+  .invite-action-btns {
+    flex-direction: column;
+  }
+
+  .invite-action-btns .comp-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .invite-step2-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .invite-step2-actions .comp-btn {
+    width: 100%;
+    justify-content: center;
   }
 }
