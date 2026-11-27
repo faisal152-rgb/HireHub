@@ -56,9 +56,7 @@ export default function InviteRecruiterModal({ onClose }) {
           const code = res.data.inviteCode || "";
           setInviteCode(code);
           const link =
-            res.data.inviteUrl ||
-            `${window.location.origin}/recruiter/join?code=${code}${res.data.companyId ? `&companyId=${res.data.companyId}` : ""
-            }`;
+            res.data.inviteUrl
           setInviteLink(link);
           if (res.data.qrCode) {
             setQrCode(res.data.qrCode);
@@ -89,9 +87,7 @@ export default function InviteRecruiterModal({ onClose }) {
         const code = res.data.inviteCode || "";
         setInviteCode(code);
         const link =
-          res.data.inviteUrl ||
-          `${window.location.origin}/recruiter/join?code=${code}${res.data.companyId ? `&companyId=${res.data.companyId}` : ""
-          }`;
+          res.data.inviteUrl
         setInviteLink(link);
         if (res.data.qrCode) {
           setQrCode(res.data.qrCode);
