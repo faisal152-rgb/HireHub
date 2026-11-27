@@ -202,7 +202,7 @@ export default function AuthLayout() {
         <aside className="auth-left-panel">
           {/* Logo */}
           <Link to="/" className="auth-panel-logo">
-            <img src="/logo.png" alt="HiringHub Logo" className="auth-logo-img" />
+            <img src="/logo-transparent.webp" alt="HiringHub Logo" className="auth-logo-img" />
             <span>Hiring<strong>Hub</strong></span>
           </Link>
 
