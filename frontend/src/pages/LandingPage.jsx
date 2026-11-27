@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import {
   ArrowRight,
@@ -24,7 +24,68 @@ import {
   Camera
 } from "lucide-react";
 
+function LandingPageSkeleton() {
+  return (
+    <div className="lp-wrap" aria-busy="true" aria-label="Loading HireHub">
+      {/* Hero Skeleton */}
+      <section className="lp-sk-hero-section">
+        <div className="lp-container">
+          <div className="lp-sk-hero-grid">
+            <div className="lp-sk-hero-content">
+              <div className="lp-skeleton-box lp-sk-pill" />
+              <div className="lp-skeleton-box lp-sk-title" />
+              <div className="lp-skeleton-box lp-sk-title-short" />
+              <div className="lp-skeleton-box lp-sk-line" />
+              <div className="lp-skeleton-box lp-sk-line-short" />
+              <div className="lp-sk-btn-row">
+                <div className="lp-skeleton-box lp-sk-btn" />
+                <div className="lp-skeleton-box lp-sk-btn" />
+              </div>
+              <div className="lp-skeleton-box lp-sk-badges" />
+            </div>
+            <div className="lp-skeleton-box lp-sk-visual" />
+          </div>
+        </div>
+      </section>
+
+      {/* Features Skeleton */}
+      <section className="lp-sk-section">
+        <div className="lp-container">
+          <div className="lp-sk-section-head">
+            <div className="lp-skeleton-box" style={{ width: 130, height: 26, borderRadius: 999 }} />
+            <div className="lp-skeleton-box" style={{ width: 260, height: 34 }} />
+            <div className="lp-skeleton-box" style={{ width: "60%", maxWidth: 420, height: 16 }} />
+          </div>
+          <div className="lp-sk-features-grid">
+            {Array.from({ length: 6 }).map((_, idx) => (
+              <div className="lp-sk-feature-card" key={idx}>
+                <div className="lp-skeleton-box lp-sk-icon" />
+                <div className="lp-sk-card-body">
+                  <div className="lp-skeleton-box" style={{ width: "65%", height: 18 }} />
+                  <div className="lp-skeleton-box" style={{ width: "100%", height: 13 }} />
+                  <div className="lp-skeleton-box" style={{ width: "85%", height: 13 }} />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
+
 export default function LandingPage() {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoading(false), 450);
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (isLoading) {
+    return <LandingPageSkeleton />;
+  }
+
   return (
     <div className="lp-wrap">
       {/* ══════════════════════════════════════════════════════════════════
