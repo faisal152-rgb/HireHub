@@ -53,10 +53,10 @@ export default function InviteRecruiterModal({ onClose }) {
         const res = await api.get(endpoint.company.getCompanyInvite);
         if (!isMounted) return;
         if (res.data) {
-          const code = res.data.inviteCode || "";
+          const code = res.data.inviteCode;
           setInviteCode(code);
           const link =
-            res.data.inviteUrl
+            res.data.inviteUrl;
           setInviteLink(link);
           if (res.data.qrCode) {
             setQrCode(res.data.qrCode);
@@ -84,10 +84,10 @@ export default function InviteRecruiterModal({ onClose }) {
     try {
       const res = await api.post(endpoint.company.regenerateCompanyInvite);
       if (res.data) {
-        const code = res.data.inviteCode || "";
+        const code = res.data.inviteCode ;
         setInviteCode(code);
         const link =
-          res.data.inviteUrl
+          res.data.inviteUrl;
         setInviteLink(link);
         if (res.data.qrCode) {
           setQrCode(res.data.qrCode);
