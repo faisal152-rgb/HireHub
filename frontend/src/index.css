@@ -441,39 +441,83 @@ a:hover {
 
 /* ── Locked Candidate ("Coming Soon") Buttons ── */
 .cs-locked-btn {
-  opacity: 0.78 !important;
-  cursor: not-allowed !important;
-  pointer-events: auto !important;
   position: relative;
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
   gap: 7px !important;
+  cursor: not-allowed !important;
+  pointer-events: auto !important;
+  font-family: inherit;
   transform: none !important;
-  filter: grayscale(0.2);
+  box-shadow: none !important;
+  overflow: visible !important;
+}
+
+button.lp-btn-primary.cs-locked-btn,
+button.role-btn-primary.cs-locked-btn {
+  border: 1px solid rgba(148, 163, 184, 0.35) !important;
+  background: #e2e8f0 !important;
+  color: #475569 !important;
+}
+
+button.landing-header-btn-candidate.cs-locked-btn,
+button.landing-mobile-btn-ghost.cs-locked-btn,
+button.role-btn-secondary.cs-locked-btn {
+  background: #f1f5f9 !important;
+  color: #64748b !important;
+  border-color: #cbd5e1 !important;
+}
+
+button.lp-btn-cta-white.cs-locked-btn {
+  border: 1px solid rgba(255, 255, 255, 0.45) !important;
+  background: rgba(255, 255, 255, 0.88) !important;
+  color: #475569 !important;
 }
 
 .cs-locked-btn:hover {
   transform: none !important;
+  box-shadow: none !important;
 }
 
 .cs-lock-icon {
   flex-shrink: 0;
-  opacity: 0.85;
+  opacity: 0.78;
+}
+
+.cs-locked-btn .cs-pill {
+  position: absolute;
+  top: -9px;
+  right: -6px;
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 7px;
+  border-radius: 999px;
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  color: #ffffff;
+  border: 1.5px solid #ffffff;
+  box-shadow: 0 2px 8px rgba(217, 119, 6, 0.35);
+  line-height: 1.25;
+  white-space: nowrap;
+  pointer-events: none;
 }
 
 .cs-pill {
   display: inline-flex;
   align-items: center;
-  padding: 2px 8px;
+  padding: 2px 7px;
   border-radius: 999px;
-  font-size: 0.68rem;
+  font-size: 0.62rem;
   font-weight: 700;
   letter-spacing: 0.03em;
   text-transform: uppercase;
-  background: rgba(15, 23, 42, 0.16);
-  color: inherit;
-  border: 1px solid currentColor;
+  background: rgba(245, 158, 11, 0.14);
+  color: #d97706;
+  border: 1px solid rgba(245, 158, 11, 0.35);
   line-height: 1.3;
   white-space: nowrap;
 }
@@ -481,28 +525,30 @@ a:hover {
 .cs-search-locked {
   border: none;
   cursor: not-allowed !important;
-  opacity: 0.72;
+  background: #cbd5e1 !important;
+  color: #475569 !important;
 }
 
 .cs-footer-locked {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 6px;
   color: #64748b;
   cursor: not-allowed;
-  font-size: 0.92rem;
+  font-size: 0.9rem;
 }
 
 .cs-footer-locked .cs-pill {
-  background: rgba(148, 163, 184, 0.14);
-  color: #94a3b8;
-  border-color: rgba(148, 163, 184, 0.35);
+  background: rgba(245, 158, 11, 0.14);
+  color: #fbbf24;
+  border-color: rgba(251, 191, 36, 0.3);
 }
 
 .cs-locked-inline {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
+  gap: 6px;
   color: #64748b;
   font-weight: 600;
   cursor: not-allowed;
