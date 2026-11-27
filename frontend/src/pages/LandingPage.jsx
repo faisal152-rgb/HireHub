@@ -107,7 +107,7 @@ export default function LandingPage() {
               <div className="lp-hero-img-wrap">
                 {/* Hero Woman Image */}
                 <img
-                  src="/assets/hero-woman.png"
+                  src="/assets/hero-woman-transparent.webp"
                   alt="Professional woman holding laptop"
                   className="lp-hero-main-img"
                 />
