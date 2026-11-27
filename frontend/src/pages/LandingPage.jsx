@@ -434,7 +434,7 @@ export default function LandingPage() {
                 <div className="lp-cand-header">
                   <div className="lp-cand-avatar">
                     <img
-                      src="/assets/hero-woman2.jpg"
+                      src="/assets/hero-woman2-transparent.webp"
                       alt="Candidate Preview"
                       className="lp-cand-avatar-img"
                     />
