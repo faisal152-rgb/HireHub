@@ -115,7 +115,7 @@ export default function InviteRecruiterModal({ onClose }) {
     if (!qrCode) return;
     const a = document.createElement("a");
     a.href = qrCode;
-    a.download = `HireHub-Invite-${inviteCode || "QR"}.png`;
+    a.download = `HireHub-Invite-${inviteCode}.png`;
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
