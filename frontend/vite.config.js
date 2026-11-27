@@ -9,10 +9,9 @@ export default defineConfig(({ mode }) => {
     plugins: [react()],
     server: {
       host: true,
-      port: 5173,
       proxy: {
         "/api": {
-          target: env.VITE_API_BASE_URL || "https://hirehub-bn3z.onrender.com",
+          target: env.VITE_API_BASE_URL,
           changeOrigin: true,
         },
       },
