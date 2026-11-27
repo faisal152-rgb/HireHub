@@ -20,7 +20,7 @@ export default function LandingLayout() {
         <div className="landing-header-inner">
           {/* Logo */}
           <Link to="/" className="landing-logo">
-            <img src="/logo.png" alt="HiringHub Logo" className="landing-logo-img" />
+            <img src="/logo-transparent.webp" alt="HiringHub Logo" className="landing-logo-img" />
             <span className="landing-logo-text">
               Hiring<strong>Hub</strong>
             </span>
