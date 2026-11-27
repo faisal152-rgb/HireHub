@@ -9,7 +9,7 @@ export default function RoleSelectPage() {
       <div className="role-page-inner">
         <header className="role-page-header">
           <Link to="/" className="role-page-logo" aria-label="HireHub home">
-            <img src="/logo.png" alt="" className="role-page-logo-image" />
+            <img src="/logo-transparent.webp" alt="" className="role-page-logo-image" />
             <span>Hire<strong>Hub</strong></span>
           </Link>
           <p className="role-page-kicker">Welcome to HireHub</p>
