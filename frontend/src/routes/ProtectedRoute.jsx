@@ -26,9 +26,48 @@ export default function ProtectedRoute({ allowedRole }) {
     }
   }, [dispatch]);
 
-  // While Redux is processing the refresh OR local init is still pending — show loader
+  // Show skeleton screen while silent refresh / auth initialization completes
   if (isInitializing || loading) {
-    return null;
+    return (
+      <div className="route-sk-shell" aria-busy="true" aria-label="Loading workspace">
+        <aside className="route-sk-sidebar">
+          <div className="route-sk-box" style={{ width: "80%", height: 32, marginBottom: 12 }} />
+          {Array.from({ length: 6 }).map((_, idx) => (
+            <div key={idx} style={{ display: "flex", alignItems: "center", gap: 10 }}>
+              <div className="route-sk-box" style={{ width: 22, height: 22, flexShrink: 0 }} />
+              <div className="route-sk-box route-sk-sidebar-label" style={{ width: "75%", height: 14 }} />
+            </div>
+          ))}
+        </aside>
+
+        <div className="route-sk-main">
+          <header className="route-sk-header">
+            <div className="route-sk-box" style={{ width: 220, maxWidth: "55%", height: 34 }} />
+            <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+              <div className="route-sk-box" style={{ width: 34, height: 34, borderRadius: "50%" }} />
+              <div className="route-sk-box" style={{ width: 34, height: 34, borderRadius: "50%" }} />
+            </div>
+          </header>
+
+          <div className="route-sk-content">
+            <div className="route-sk-box" style={{ width: 240, maxWidth: "70%", height: 26 }} />
+            <div className="route-sk-stats">
+              {Array.from({ length: 4 }).map((_, idx) => (
+                <div className="route-sk-card" key={idx}>
+                  <div className="route-sk-box" style={{ width: 90, height: 12, marginBottom: 12 }} />
+                  <div className="route-sk-box" style={{ width: 56, height: 26 }} />
+                </div>
+              ))}
+            </div>
+            <div className="route-sk-card" style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+              {Array.from({ length: 4 }).map((_, idx) => (
+                <div key={idx} className="route-sk-box" style={{ width: "100%", height: 42 }} />
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    );
   }
 
   // After init — read authoritative values from memory (updated by silentRefreshToken)
