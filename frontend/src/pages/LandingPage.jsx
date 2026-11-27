@@ -21,8 +21,28 @@ import {
   Link as LinkIcon,
   UserCheck,
   Headphones,
-  Camera
+  Camera,
+  Lock
 } from "lucide-react";
+
+/* ── Candidate Coming Soon wrapper ─────────────────────────── */
+function CandidateComingSoon({ className = "", children, id, style = {} }) {
+  return (
+    <button
+      type="button"
+      id={id}
+      disabled
+      aria-disabled="true"
+      title="Candidate portal is coming soon"
+      className={`${className} cs-locked-btn`}
+      style={style}
+    >
+      <Lock size={15} className="cs-lock-icon" />
+      <span>{children}</span>
+      <span className="cs-pill">Coming Soon</span>
+    </button>
+  );
+}
 
 function LandingPageSkeleton() {
   return (
@@ -117,9 +137,9 @@ export default function LandingPage() {
 
               {/* Action Buttons — matching reference: "Find Jobs" + "For Employers" */}
               <div className="lp-hero-cta-row">
-                <Link to="/candidate/signup" className="lp-btn-primary" id="hero-find-jobs-btn">
+                <CandidateComingSoon className="lp-btn-primary" id="hero-find-jobs-btn">
                   Find Jobs
-                </Link>
+                </CandidateComingSoon>
                 <Link to="/company/signup" className="lp-btn-outline" id="hero-employers-btn">
                   For Employers
                 </Link>
@@ -182,13 +202,15 @@ export default function LandingPage() {
                       type="text"
                       placeholder="Search jobs, companies, skills..."
                     />
-                    <Link to="/candidate/signup">
-                      <div className="lp-search-btn-fake">
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                          <circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" />
-                        </svg>
-                      </div>
-                    </Link>
+                    <button
+                      type="button"
+                      disabled
+                      aria-disabled="true"
+                      title="Candidate job search is coming soon"
+                      className="lp-search-btn-fake cs-search-locked"
+                    >
+                      <Lock size={12} />
+                    </button>
                   </div>
                 </div>
 
@@ -780,9 +802,9 @@ export default function LandingPage() {
               </div>
 
               <div className="lp-about-cta-row">
-                <Link to="/candidate/signup" className="lp-btn-primary">
-                  Explore Platform <ChevronRight size={16} />
-                </Link>
+                <CandidateComingSoon className="lp-btn-primary">
+                  Explore Platform
+                </CandidateComingSoon>
                 <Link to="/join-company" className="lp-btn-link" style={{ fontWeight: 700 }}>
                   Join as Recruiter via QR / Link →
                 </Link>

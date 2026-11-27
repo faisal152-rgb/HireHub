@@ -18,6 +18,7 @@ import api from "../../../services/api";
 import endpoint from "../../../services/endpoint";
 import { recruiterJoinCompany, updateToken } from "../authSlice";
 import { setAccessToken } from "../../../utils/tokenStorage";
+import { AuthCardSkeleton } from "../components/AuthSkeleton";
 import "../styles/auth.css";
 
 // SVG Vector illustration of hand holding smartphone with QR code
@@ -403,6 +404,10 @@ export default function RecruiterJoinPage() {
       setIsJoining(false);
     }
   };
+
+  if (isVerifying && !verifiedCompany) {
+    return <AuthCardSkeleton />;
+  }
 
   return (
     <div className="auth-page-wrapper">

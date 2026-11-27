@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, Outlet } from "react-router-dom";
-import { Briefcase, Menu, X, User, Building2 } from "lucide-react";
+import { Briefcase, Menu, X, User, Building2, Lock } from "lucide-react";
 import "../../styles/landing.css";
 
 export default function LandingLayout() {
@@ -29,10 +29,17 @@ export default function LandingLayout() {
 
           {/* Header Actions: JUST Candidate and Company buttons (No dropdown options) */}
           <div className="landing-header-actions">
-            <Link to="/candidate/login" className="landing-header-btn-candidate">
-              <User size={16} />
+            <button
+              type="button"
+              disabled
+              aria-disabled="true"
+              title="Candidate portal is coming soon"
+              className="landing-header-btn-candidate cs-locked-btn"
+            >
+              <Lock size={14} className="cs-lock-icon" />
               <span>Candidate</span>
-            </Link>
+              <span className="cs-pill">Coming Soon</span>
+            </button>
 
             <Link to="/company/login" className="landing-header-btn-company">
               <Building2 size={16} />
@@ -55,9 +62,17 @@ export default function LandingLayout() {
           <div className="landing-mobile-menu">
 
             <div className="landing-mobile-btns">
-              <Link to="/candidate/login" className="landing-mobile-btn-ghost" onClick={() => setMobileOpen(false)}>
-                <User size={16} /> Candidate
-              </Link>
+              <button
+                type="button"
+                disabled
+                aria-disabled="true"
+                title="Candidate portal is coming soon"
+                className="landing-mobile-btn-ghost cs-locked-btn"
+              >
+                <Lock size={15} className="cs-lock-icon" />
+                <span>Candidate</span>
+                <span className="cs-pill">Coming Soon</span>
+              </button>
               <Link to="/company/login" className="landing-mobile-btn-primary" onClick={() => setMobileOpen(false)}>
                 <Building2 size={16} /> Company
               </Link>
@@ -80,9 +95,17 @@ export default function LandingLayout() {
               <p>Join over 120,000+ professionals and 5,000+ innovative companies using HireHub.</p>
             </div>
             <div className="lp-cta-strip-actions">
-              <Link to="/candidate/login" className="lp-btn-cta-white">
-                Candidate Portal
-              </Link>
+              <button
+                type="button"
+                disabled
+                aria-disabled="true"
+                title="Candidate portal is coming soon"
+                className="lp-btn-cta-white cs-locked-btn"
+              >
+                <Lock size={15} className="cs-lock-icon" />
+                <span>Candidate Portal</span>
+                <span className="cs-pill">Coming Soon</span>
+              </button>
               <Link to="/company/login" className="lp-btn-cta-outline">
                 Company Portal
               </Link>
@@ -98,7 +121,7 @@ export default function LandingLayout() {
             {/* Col 1: Brand */}
             <div className="landing-footer-brand">
               <div className="landing-logo footer-logo">
-                <img src="/logo.png" alt="HiringHub Logo" className="landing-logo-img" />
+                <img src="/logo-transparent.webp" alt="HiringHub Logo" className="landing-logo-img" />
                 <span className="landing-logo-text">
                   Hiring<strong>Hub</strong>
                 </span>
@@ -171,9 +194,16 @@ export default function LandingLayout() {
             <div className="landing-footer-col">
               <h4>For Candidates</h4>
               <ul>
-                <li><Link to="/candidate/login">Candidate Sign In</Link></li>
-                <li><Link to="/candidate/signup">Create Free Account</Link></li>
-
+                <li>
+                  <span className="cs-footer-locked" aria-disabled="true">
+                    <Lock size={13} /> Candidate Sign In <span className="cs-pill">Coming Soon</span>
+                  </span>
+                </li>
+                <li>
+                  <span className="cs-footer-locked" aria-disabled="true">
+                    <Lock size={13} /> Create Free Account <span className="cs-pill">Coming Soon</span>
+                  </span>
+                </li>
               </ul>
             </div>
 

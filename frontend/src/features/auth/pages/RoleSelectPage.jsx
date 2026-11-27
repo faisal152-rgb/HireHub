@@ -1,9 +1,20 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { UserCheck, Building2, ArrowRight, Check } from "lucide-react";
+import { UserCheck, Building2, ArrowRight, Check, Lock } from "lucide-react";
+import { RoleSelectSkeleton } from "../components/AuthSkeleton";
 import "../styles/auth.css";
 
 export default function RoleSelectPage() {
+  const [isReady, setIsReady] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setIsReady(true), 300);
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (!isReady) {
+    return <RoleSelectSkeleton />;
+  }
   return (
     <div className="role-page">
       <div className="role-page-inner">
@@ -30,10 +41,16 @@ export default function RoleSelectPage() {
               <li><Check size={15} /> Track applications</li>
             </ul>
             <div className="role-card-btns">
-              <Link to="/candidate/login" className="role-btn-primary">
-                <span>Sign In</span><ArrowRight size={16} />
-              </Link>
-              <Link to="/candidate/signup" className="role-btn-secondary">Create account</Link>
+              <button type="button" disabled aria-disabled="true" className="role-btn-primary cs-locked-btn">
+                <Lock size={15} className="cs-lock-icon" />
+                <span>Sign In</span>
+                <span className="cs-pill">Coming Soon</span>
+              </button>
+              <button type="button" disabled aria-disabled="true" className="role-btn-secondary cs-locked-btn">
+                <Lock size={14} className="cs-lock-icon" />
+                <span>Create account</span>
+                <span className="cs-pill">Coming Soon</span>
+              </button>
             </div>
           </section>
 

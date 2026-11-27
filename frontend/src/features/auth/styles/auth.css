@@ -1351,6 +1351,26 @@
 }
 
 @media (max-width: 480px) {
+  .auth-page-wrapper {
+    padding: 16px 12px;
+  }
+
+  .auth-right-panel {
+    padding: 24px 16px;
+  }
+
+  .recruiter-join-card {
+    min-height: auto;
+  }
+
+  .recruiter-tab-body {
+    min-height: auto;
+  }
+
+  .recruiter-qr-viewfinder {
+    height: 200px;
+  }
+
   .otp-boxes-container {
     gap: 6px;
   }
@@ -1360,5 +1380,36 @@
     height: 50px;
     font-size: 1.35rem;
     border-radius: 10px;
+  }
+}
+
+/* ==========================================================================
+   AUTH SKELETON SCREENS
+   ========================================================================== */
+@keyframes authSkShimmer {
+  0% {
+    background-position: -600px 0;
+  }
+  100% {
+    background-position: 600px 0;
+  }
+}
+
+.auth-sk-box {
+  background: linear-gradient(90deg, #e2e8f0 25%, #f1f5f9 50%, #e2e8f0 75%);
+  background-size: 1200px 100%;
+  animation: authSkShimmer 1.4s infinite linear;
+  border-radius: 8px;
+}
+
+.auth-sk-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .auth-sk-box {
+    animation: none;
   }
 }

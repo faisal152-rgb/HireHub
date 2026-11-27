@@ -150,7 +150,9 @@ export default function CompanySignupForm({ onSwitchToLogin }) {
 
       <div className="auth-footer-nav">
         Are you a job seeker?{" "}
-        <Link to="/candidate/signup" className="auth-link" style={{ fontWeight: 600 }}>Sign up as Candidate</Link>
+        <span className="cs-locked-inline" aria-disabled="true" title="Candidate portal is coming soon">
+          <Lock size={12} /> Sign up as Candidate <span className="cs-pill">Coming Soon</span>
+        </span>
       </div>
     </div>
   );
