@@ -79,7 +79,7 @@ export default function CompanySidebar({ isCollapsed = false, onToggleCollapse }
           title={isCollapsed ? "Click to expand sidebar" : "Click to collapse sidebar"}
         >
           <div className="comp-sidebar-logo-icon">
-            <img src="/logo.png" alt="HiringHub Logo" className="landing-logo-img" />
+            <img src="/logo-transparent.webp" alt="HiringHub Logo" className="landing-logo-img" />
           </div>
           {!isCollapsed && (
             <div className="comp-sidebar-brand-text-wrap">
