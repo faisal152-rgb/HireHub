@@ -411,7 +411,7 @@ export default function RecruiterJoinPage() {
         <aside className="auth-left-panel recruiter-join-dark-panel">
           {/* Logo */}
           <Link to="/" className="auth-panel-logo" style={{ color: "#ffffff", marginBottom: "28px" }}>
-            <img src="/logo.png" alt="HiringHub Logo" className="auth-logo-img" />
+            <img src="/logo-transparent.webp" alt="HiringHub Logo" className="auth-logo-img" />
             <span style={{ color: "#ffffff" }}>Hiring<strong>Hub</strong></span>
           </Link>
 
