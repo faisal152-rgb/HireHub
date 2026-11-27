@@ -34,7 +34,7 @@ const app = express();
 app.use(helmet())
 app.use(morgan('dev'))
 app.use(cors({
-    origin: "http://localhost:5173",
+    origin: process.env.ORIGIN_URL,
     credentials: true,
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"]
@@ -46,6 +46,7 @@ app.use(express.json());
 
 // Candidate Authentication Routes
 app.use("/auth", candidateAuth);
+app.use("/candidate", candidateAuth);
 
 // Candidate Profile Routes
 app.use("/profile", candidateProfile);

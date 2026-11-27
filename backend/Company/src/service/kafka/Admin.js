@@ -1,7 +1,6 @@
 const { kafka } = require("../../config/kafka");
 
-
-const REQUIRED_TOPICS = [
+const COMPANY_TOPICS = [
   "job-events",
   "application-events",
   "application-status-events",
@@ -15,21 +14,26 @@ const REQUIRED_TOPICS = [
 async function KafkaAdmin() {
   const admin = kafka.admin();
   try {
-    console.log("Company Admin Connecting.....");
+    console.log("[Company Kafka Admin] Connecting...");
     await admin.connect();
-    console.log("Company Admin Connected Successfully");
+    console.log("[Company Kafka Admin] Connected Successfully");
 
     let existingTopics = [];
     try {
       existingTopics = await admin.listTopics();
     } catch (listErr) {
-      console.warn("Company Kafka Admin could not list topics:", listErr.message);
+      console.warn("[Company Kafka Admin] could not list topics:", listErr.message);
     }
 
-    const topicsToCreate = REQUIRED_TOPICS.filter((t) => !existingTopics.includes(t)).map((topic) => ({
+    const isCloud = process.env.KAFKA_SSL === "true" || process.env.KAFKA_SSL === true;
+    const replicationFactor = process.env.KAFKA_REPLICATION_FACTOR
+      ? parseInt(process.env.KAFKA_REPLICATION_FACTOR, 10)
+      : (isCloud ? 3 : 1);
+
+    const topicsToCreate = COMPANY_TOPICS.filter((t) => !existingTopics.includes(t)).map((topic) => ({
       topic,
       numPartitions: 2,
-      replicationFactor: 1,
+      replicationFactor,
     }));
 
     if (topicsToCreate.length > 0) {
@@ -37,21 +41,22 @@ async function KafkaAdmin() {
         waitForLeaders: true,
         topics: topicsToCreate,
       });
-      console.log(`Company Kafka Topics created successfully: ${topicsToCreate.map((t) => t.topic).join(", ")}`);
+      console.log(`[Company Kafka Admin] Kafka Topics created successfully: ${topicsToCreate.map((t) => t.topic).join(", ")}`);
     } else {
-      console.log("All Company Kafka topics already exist.");
+      console.log("[Company Kafka Admin] All required Kafka topics already exist.");
     }
   } catch (error) {
-    console.error("Error creating Company Kafka topics:", error.message);
+    console.error("[Company Kafka Admin] Error configuring Kafka topics:", error.message);
   } finally {
     try {
       await admin.disconnect();
-      console.log("Company Kafka Admin disconnected");
+      console.log("[Company Kafka Admin] Disconnected");
     } catch (disconnectErr) {
-      console.warn("Company Kafka Admin disconnect error:", disconnectErr.message);
+      console.warn("[Company Kafka Admin] Disconnect warning:", disconnectErr.message);
     }
   }
 }
+
 module.exports = {
   KafkaAdmin,
-}
+};

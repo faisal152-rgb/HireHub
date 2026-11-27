@@ -81,8 +81,10 @@ async function resolveCompany(req) {
 }
 
 // Helper: Construct the reusable company entry URL.
+// MUST use ORIGIN_URL (same as generateInviteLink in utils) so page-load
+// and regenerate always produce the same base URL.
 function buildInviteUrl(inviteCode, companyId) {
-  const baseUrl = process.env.CLIENT_URL || "http://localhost:5173";
+  const baseUrl = process.env.ORIGIN_URL;
   return `${baseUrl}/recruiter/join?code=${inviteCode}&companyId=${companyId}`;
 }
 
@@ -100,13 +102,29 @@ async function getCompanyInvite(req, res) {
     let qrCode = "";
 
     if (!inviteCode) {
+      // No invite code at all — generate a fresh one
       const generated = await generateInviteLink(company);
       inviteCode = generated.inviteCode;
       inviteUrl = generated.inviteUrl;
       qrCode = generated.qrCode;
     } else {
-      inviteUrl = buildInviteUrl(inviteCode, company._id);
-      qrCode = await generateQRCode(inviteUrl);
+      // Code exists on company — verify that the RecruiterInvite document still exists in DB
+      const existingInvite = await RecruiterInvite.findOne({
+        inviteCode: inviteCode.trim().toUpperCase(),
+        companyId: company._id,
+      });
+
+      if (!existingInvite) {
+        // RecruiterInvite doc was deleted (e.g. DB reset/cleanup) — regenerate
+        const generated = await generateInviteLink(company);
+        inviteCode = generated.inviteCode;
+        inviteUrl = generated.inviteUrl;
+        qrCode = generated.qrCode;
+      } else {
+        // All good — build URL and QR from existing code
+        inviteUrl = buildInviteUrl(inviteCode, company._id);
+        qrCode = await generateQRCode(inviteUrl);
+      }
     }
 
     return res.status(200).json({

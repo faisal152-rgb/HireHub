@@ -1,6 +1,6 @@
 const { kafka } = require("../../config/kafka");
 
-const REQUIRED_TOPICS = [
+const ADMIN_TOPICS = [
   "application-events",
   "job-events",
   "application-status-events",
@@ -29,10 +29,15 @@ async function KafkaAdmin() {
       console.warn("[Kafka Admin] Could not list existing topics, proceeding to create:", listErr.message);
     }
 
-    const topicsToCreate = REQUIRED_TOPICS.filter((t) => !existingTopics.includes(t)).map((topic) => ({
+    const isCloud = process.env.KAFKA_SSL === "true" || process.env.KAFKA_SSL === true;
+    const replicationFactor = process.env.KAFKA_REPLICATION_FACTOR
+      ? parseInt(process.env.KAFKA_REPLICATION_FACTOR, 10)
+      : (isCloud ? 3 : 1);
+
+    const topicsToCreate = ADMIN_TOPICS.filter((t) => !existingTopics.includes(t)).map((topic) => ({
       topic,
       numPartitions: 2,
-      replicationFactor: 1,
+      replicationFactor,
     }));
 
     if (topicsToCreate.length > 0) {
@@ -57,6 +62,5 @@ async function KafkaAdmin() {
 }
 
 module.exports = {
-  KafkaAdmin,
-  REQUIRED_TOPICS,
+  KafkaAdmin
 };

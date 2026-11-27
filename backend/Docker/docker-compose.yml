@@ -1,10 +1,5 @@
 services:
 
-  redis:
-    image: redis:alpine
-    container_name: hirehub-redis
-    ports:
-      - "6379:6379"
 
   zookeeper:
     image: confluentinc/cp-zookeeper:7.5.0
@@ -44,20 +39,7 @@ services:
       - admin
       - company
       - candidate
-      - redis
 
-  admin:
-    build:
-      context: ..
-      dockerfile: Docker/Dockerfile
-      args:
-        SERVICE: Admin
-    container_name: hirehub-admin
-    expose:
-      - "3001"
-    depends_on:
-      - redis
-      - kafka
 
   company:
     build:

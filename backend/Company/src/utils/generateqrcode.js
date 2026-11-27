@@ -71,7 +71,7 @@ const generateInviteLink = async (company, options = {}) => {
       await company.save();
     }
 
-    const baseUrl = process.env.CLIENT_URL || "http://localhost:5173";
+    const baseUrl = process.env.ORIGIN_URL;
     const inviteUrl = `${baseUrl}/recruiter/join?code=${inviteCode}&companyId=${company._id}`;
 
     const qrCode = await generateQRCode(inviteUrl);

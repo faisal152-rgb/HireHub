@@ -12,3 +12,7 @@ Backend/public
 .env
 *.env
 !.env.example 
+
+# 
+test_verification_suite.js
+proof.md

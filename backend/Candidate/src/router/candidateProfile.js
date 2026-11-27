@@ -37,7 +37,7 @@ router.delete("/delete-experience/:id", candidateAuth, deleteExperience);
 
 // Skills routes
 router.post("/skills", candidateAuth, addSkills);
-router.delete("/delete-skills/:skill?", candidateAuth, deleteSkills);
+router.delete(["/delete-skills", "/delete-skills/:skill"], candidateAuth, deleteSkills);
 
 // Resume routes
 router.post("/resume", candidateAuth, uploadResume);

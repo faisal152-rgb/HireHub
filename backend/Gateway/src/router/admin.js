@@ -1,18 +1,16 @@
-const express=require("express");
-const axios=require("axios");
-const {rateLimiterAdmin}=require("../middleware/ratelimit");
-const router=express.Router();
+const express = require("express");
+const { rateLimiterAdmin } = require("../middleware/ratelimit");
+const { createServiceProxy } = require("../utils/proxy");
+const router = express.Router();
 
+const adminServiceUrl = process.env.ADMIN_SERVICE_URL || "http://localhost:3001";
+const proxyToAdmin = createServiceProxy(adminServiceUrl);
 
-router.post("/admin",rateLimiterAdmin,async(req,res)=>{
-   try {
-     const response=await axios.post("http://localhost:30001/admin",req.body);
-    res.json(response.data);
-   } catch (error) {
-    res.json({error:error.response.data.message});
-   }
-})
+// Proxy Admin routes to Admin Service (:3001)
+router.use("/admin", rateLimiterAdmin, proxyToAdmin);
+router.use("/user", rateLimiterAdmin, proxyToAdmin);
+router.use("/platform-report", rateLimiterAdmin, proxyToAdmin);
+router.use("/moderation-log", rateLimiterAdmin, proxyToAdmin);
+router.use("/audit-log", rateLimiterAdmin, proxyToAdmin);
 
-
-
-module.exports=router;
+module.exports = router;

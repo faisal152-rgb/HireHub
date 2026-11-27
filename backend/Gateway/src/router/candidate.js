@@ -1,18 +1,18 @@
-const express=require("express");
-const axios=require("axios");
-const {rateLimiterCandidate}=require("../middleware/ratelimit");
-const router=express.Router();
+const express = require("express");
+const { rateLimiterCandidate } = require("../middleware/ratelimit");
+const { createServiceProxy } = require("../utils/proxy");
+const router = express.Router();
 
+const candidateServiceUrl = process.env.CANDIDATE_SERVICE_URL || "http://localhost:3003";
+const proxyToCandidate = createServiceProxy(candidateServiceUrl);
 
-router.post("/candidate",rateLimiterCandidate,async(req,res)=>{
-   try {
-     const response=await axios.post("http://localhost:3003/candidate",req.body);
-    res.json(response.data);
-   } catch (error) {
-    res.json({error:error.response.data.message});
-   }
-})
+// Proxy Candidate routes to Candidate Service (:3003)
+router.use("/candidate", rateLimiterCandidate, proxyToCandidate);
+router.use("/profile", rateLimiterCandidate, proxyToCandidate);
+router.use("/jobs", rateLimiterCandidate, proxyToCandidate);
+router.use("/application", rateLimiterCandidate, proxyToCandidate);
+router.use("/assessment", rateLimiterCandidate, proxyToCandidate);
+router.use("/submit", rateLimiterCandidate, proxyToCandidate);
+router.use("/submission", rateLimiterCandidate, proxyToCandidate);
 
-
-
-module.exports=router;
+module.exports = router;

@@ -13,7 +13,7 @@ const app = express();
 app.use(helmet())
 app.use(morgan('dev'))
 app.use(cors({
-    origin: "http://localhost:5173",
+    origin: process.env.ORIGIN_URL,
     credentials: true,
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"]
@@ -26,11 +26,18 @@ app.use(cookieParser());
 app.use(compression());
 app.use(express.json());
 
+// Health API 
+app.get("/health", (req, res) => {
+ res.status(200).json({
+    success: true,
+    service: "HireHub API Gateway",
+    satatus: "OK",
+    timestamp: new
+    Date().toISOString()
+ });
+});
 
 
-
-// Connect the Redis
-connectRedis();
 
 // Candidate Routes
 app.use("/api", require("./router/candidate.js"));
@@ -40,6 +47,11 @@ app.use("/api", require("./router/recruiter.js"));
 
 // Admin Routes
 app.use("/api", require("./router/admin.js"));
+
+
+// Connect the Redis
+connectRedis();
+
 
 
 

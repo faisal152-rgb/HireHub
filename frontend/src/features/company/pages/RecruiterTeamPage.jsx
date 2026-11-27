@@ -10,6 +10,7 @@ import {
   Clock,
   ExternalLink,
   Loader2,
+  Users,
 } from "lucide-react";
 import InviteRecruiterModal from "../components/InviteRecruiterModal";
 import api from "../../../services/api";
@@ -206,8 +207,12 @@ export default function RecruiterTeamPage({ autoOpenInvite = false }) {
                 </tr>
               ) : recruiters.length === 0 ? (
                 <tr>
-                  <td colSpan={5} style={{ padding: 32, textAlign: "center", color: "#64748b" }}>
-                    No recruiters found.
+                  <td colSpan={5} style={{ textAlign: "center", padding: 48, color: "#94a3b8" }}>
+                    <Users size={36} style={{ marginBottom: 10, opacity: 0.4 }} />
+                    <div style={{ fontWeight: 600, fontSize: 15 }}>No recruiters found</div>
+                    <div style={{ fontSize: 13, marginTop: 4 }}>
+                      Invite a recruiter to start building your team.
+                    </div>
                   </td>
                 </tr>
               ) : recruiters.map((rec) => {
